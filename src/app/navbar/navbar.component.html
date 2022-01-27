@@ -1,0 +1,18 @@
+<p>
+    <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Off Desk</span>
+      <span class="example-spacer"></span>
+      <button     mat-button (click)="homePage()" >Home</button>
+      <button  *ngIf="loggedIn"  mat-button (click)="Dashboar()" >Dashboard</button>
+      <button *ngIf="loggedIn"  (click)="register()"  mat-button>Register</button>
+      <button *ngIf="!loggedIn"   (click)="logIn()" mat-button>Login</button>
+      <button *ngIf="loggedIn"    mat-button >User</button>
+      <button *ngIf="loggedIn" (click)="logOut()" mat-button>Logout</button>
+      </mat-toolbar-row>
+      </mat-toolbar>
+  </p>
+  

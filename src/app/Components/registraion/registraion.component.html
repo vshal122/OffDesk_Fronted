@@ -1,0 +1,69 @@
+<div style="text-align: center;">
+     <mat-card-content>
+         <form  (ngSubmit)="registerNow()">
+        <h3>REGISTER HERE</h3>
+        <mat-form-field class="mat-form-d" appearance="outline" required>
+            <mat-label>User Name</mat-label>
+            <input  matInput  placeholder="User name"  name="username" [(ngModel)]="user.userName"  required>
+         </mat-form-field>
+         <mat-form-field  class="mat-form-d" appearance="outline" required>
+            <mat-label>Select Designation</mat-label>
+            <mat-select name="designation" [(ngModel)]="user.designation">
+              <mat-option value="Manager">Manager</mat-option>
+              <mat-option value="HR">HR</mat-option>
+              <mat-option value="Developer">Developer</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+         <mat-form-field  class="mat-form-d" appearance="outline"  >
+            <mat-label>Address</mat-label>
+            <input  matInput  placeholder="Address" [(ngModel)]="user.address" name="address"  required>
+         </mat-form-field>
+         <mat-form-field  class="mat-form-d" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input  matInput  placeholder="Email"  [(ngModel)]="user.email" name="email" required>
+         </mat-form-field><br>
+         <mat-form-field  class="mat-form-d" appearance="outline"  required>
+            <mat-label>Mobile</mat-label>
+            <input  matInput  placeholder="Mobile" [(ngModel)]="user.mobile"   name="mobile" required>
+         </mat-form-field>
+        <mat-form-field  class="mat-form-d" appearance="outline" required>
+            <mat-label>Password</mat-label>
+            <input  matInput  placeholder="Password" [(ngModel)]="user.password" name="password" required>
+         </mat-form-field><br>
+         <mat-form-field  class="mat-form-d" appearance="outline">
+            <mat-label>Leave</mat-label>
+            <input  matInput  placeholder="Leave" [(ngModel)]="user.leaveBalance" name="leave" required>
+         </mat-form-field>
+         <mat-form-field  class="mat-form-d" appearance="outline">
+            <mat-label>ManagerId</mat-label>
+            <input  matInput  placeholder="Manager" [(ngModel)]="user.managerId"  name="managerId"  required>
+         </mat-form-field><br>
+         <mat-card-actions>
+             
+           <mat-form-field appearance="outline" class="mat-form-d1" required>
+            <mat-label>Select Gender</mat-label>
+            <mat-select name="gender" [(ngModel)]="user.gender" required>
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+              <mat-option value="Other">Other</mat-option>
+            </mat-select>
+
+           </mat-form-field>
+
+            
+         <mat-form-field   class="mat-form-d2" appearance="outline" required>
+             <mat-label>Joining Date</mat-label>
+         <input matInput [matDatepicker]="picker"[(ngModel)]="user.joinDate"   name="joindate"   placeholder="date">
+         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+         <mat-datepicker #picker></mat-datepicker>
+       </mat-form-field>
+     
+     </mat-card-actions><br>
+     
+      <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary">REGISTER</button>
+      </mat-card-actions>
+ </form>
+     </mat-card-content>
+   {{message}}
+</div>
