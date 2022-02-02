@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginserviceService } from '../Service/loginservice.service';
+import { UserProfileService } from '../Service/user-profile.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,15 +10,22 @@ import { LoginserviceService } from '../Service/loginservice.service';
 export class NavbarComponent implements OnInit {
 
   public loggedIn = false;
-  constructor(private logservice:LoginserviceService) { }
+   
+  constructor(private loginservice:LoginserviceService,private userservice:UserProfileService) { }
 
   ngOnInit(): void {
-    this.loggedIn = this.logservice.isLoggedIn();
+    this.loggedIn = this.loginservice.isLoggedIn();
   }
-
+  newtoken:any;
+  base64Url:any;
+  decodedValue:any;
+  email : string="";
+  
+ public userProfile:any;
+ 
   logOut()
   {
-    this.logservice.logout();
+    this.loginservice.logout();
     location.reload();
     window.location.href="/login";
   }
@@ -32,8 +40,29 @@ export class NavbarComponent implements OnInit {
   homePage(){
     window.location.href="/home";
   }
-  Dashboar(){
+  Dashboard(){
     window.location.href="/dashboard";
   }
+
+  myprofile()
+  {
+    
+      this.newtoken= this.loginservice.getToken();
+      this.base64Url =this.newtoken.split('.')[1];
+      this.decodedValue = JSON.parse(window.atob(this.base64Url));
+        this.email=this.decodedValue["sub"];
+       this.userservice.getUserbyEmail(this.email).subscribe(
+         (Response:any)=>{
+                console.log(Response);
+                this.userProfile=Response;
+         },
+         (Error)=>{
+             console.log("My Profile ERRoR");
+         }
+       )
+      
+    
+  }
+  
 
 }

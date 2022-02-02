@@ -11,6 +11,6 @@ export class User{
       public  gender:string,
       public  joinDate:string,
       public  leaveBalance:number,
-      public managerId:number
+      public managerUsername:string
              ){}
 }

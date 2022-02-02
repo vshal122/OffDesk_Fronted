@@ -1,0 +1,33 @@
+<div class="bootstrap-wrapper">
+    <mat-card>
+    <h2>!! Welcome to Manager Panel !!</h2>
+   
+    <button mat-raised-button color="white"  >List Of Employees</button>
+    
+    </mat-card>
+    <div >  
+     <img    src="assets\undraw_welcome_cats_thqn.svg" style="width: 30%; margin-left: 400px; margin-top: 80px;">
+    </div>
+    
+    
+</div>
+<div >
+<mat-card>
+<ng-template ngIf="allProfiles.length != 0">
+    <table id="customers">
+        <tr>
+         <th>UserId</th>
+         <th>Username</th>
+         <th>email</th>
+         <th>gender</th>
+         <th>joinDate</th>
+         <th>leaveBalance</th>
+         <th>mobile</th>
+         <th>designation</th>
+        </tr>
+        
+       
+    </table>
+</ng-template>
+</mat-card>
+</div>

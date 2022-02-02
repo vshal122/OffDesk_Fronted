@@ -26,6 +26,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { DashboardManagerComponent } from './Components/dashboard-manager/dashboard-manager.component';
+import { DashboardHrComponent } from './Components/dashboard-hr/dashboard-hr.component';
+import { DashboardDeveloperComponent } from './Components/dashboard-developer/dashboard-developer.component';
+import {  MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import {MatSelectModule} from '@angular/material/select';
     EmailComponent,
     LoginComponent,
     DashboardComponent,
-    RegistraionComponent
+    RegistraionComponent,
+    DashboardManagerComponent,
+    DashboardHrComponent,
+    DashboardDeveloperComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +61,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatCardModule,
     MatDatepickerModule,
     MatRadioModule,
-    MatSelectModule
-    
-    
+    MatSelectModule,
+    MatSidenavModule,
+    MatListModule
     
 
   ],

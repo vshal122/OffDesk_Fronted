@@ -16,4 +16,19 @@ export class UserProfileService {
   return this.http.get(`${this.baseurl}/offdesk/user/all_employee`);
 
   }
+  getUserbyEmail(gmail:string)
+ {
+     return this.http.get(`${this.baseurl}/offdesk/user/getuserbyemail/${gmail}`);
+ }
+ getLeaveRecordByEmail(gmail:string)
+ {
+  return this.http.get(`${this.baseurl}/offdesk/leave/getleaveuserbyemail/${gmail}`);
+ }
+
+ takeLeave(leavedetails:any)
+ {
+  return this.http.post(`${this.baseurl}/offdesk/leave/save`,leavedetails,{responseType:"text" as "json"});
+ }
+
 }
+ 

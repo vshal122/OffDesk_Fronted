@@ -1,0 +1,56 @@
+<div>
+    <mat-card>
+        <h2>!! Welcome To Developer Panel !!</h2>
+        <button class="button-style" mat-raised-button color="white" (click)="checkLeaveBalance()">My Leave Record</button>
+        <button class="button-style"   mat-raised-button color="white" (click)="InleaveForm()"  >Apply for leave</button>
+    </mat-card>
+    <div *ngIf="!tempVar && !tempVar2" >  
+        <img    src="assets\undraw_welcome_cats_thqn.svg" style="width: 30%; margin-left: 400px; margin-top: 80px;">
+       </div>
+
+  <!--Leave Record Details  -->
+    <div *ngIf="tempVar">
+        <mat-card>
+            <ng-template ngIf="leaveRecord.length!=0">
+                <table id="customers">
+                    <tr>
+                     <th>FromDate</th>
+                     <th>EndDate</th>
+                     <th>LeaveStatus</th>
+                    </tr>
+                    <tr *ngFor="let leave of leaveRecord">
+                     <td>{{leave?.fromDate}}</td>
+                     <td>{{leave.endDate}}</td>
+                     <td>{{leave.leaveStatus}}</td>
+                    </tr>
+                </table>
+            </ng-template>
+           </mat-card>
+
+    </div>
+
+     <!--Leave Record Details  -->
+     <div *ngIf="tempVar2">
+        <mat-card class="mat-card-leave">
+            <mat-card-content>
+              <form (ngSubmit)="leaveSubmit()">
+                <h2>Take Your Leave</h2>
+            <mat-form-field  appearance="outline" required>
+             <mat-label>Start Date of Leave</mat-label>
+           <input matInput [matDatepicker]="picker"   name="fromDate"  [(ngModel)]="leavedetails.fromDate"  placeholder="Choose date">
+           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field  appearance="outline" required>
+              <mat-label>End Date of Leave</mat-label>
+              <input matInput [matDatepicker]="picker1"   name="endDate"  [(ngModel)]="leavedetails.endDate"   placeholder="Choose date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+                   <button mat-raised-button color="primary">Submit Leave</button>
+              </form>
+        </mat-card-content>
+          </mat-card>
+          {{leavedetails | json}}
+        </div>
+</div>

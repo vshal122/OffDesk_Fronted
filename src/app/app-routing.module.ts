@@ -6,14 +6,21 @@ import { LoginComponent } from './Components/login/login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { AuthGuard } from './Service/auth.guard';
 import { RegistraionComponent } from './Components/registraion/registraion.component';
+import { DashboardManagerComponent } from './Components/dashboard-manager/dashboard-manager.component';
+import { DashboardHrComponent } from './Components/dashboard-hr/dashboard-hr.component';
+import { DashboardDeveloperComponent } from './Components/dashboard-developer/dashboard-developer.component';
 
 
 const routes: Routes = [
   { path: 'SendMail', component: EmailComponent, pathMatch:"full" },
   { path: 'login', component: LoginComponent , pathMatch:"full" },
   { path: 'dashboard', component: DashboardComponent , pathMatch:"full",canActivate:[AuthGuard] },
-  { path : '' ,component : HomeComponent,pathMatch:"full"},
-  { path : 'registration' ,component : RegistraionComponent,pathMatch:"full"}
+  { path : 'home' ,component : HomeComponent,pathMatch:"full"},
+  { path : 'registraion' ,component : RegistraionComponent,pathMatch:"full"},
+  { path : 'dashboard-manager' ,component : DashboardManagerComponent,pathMatch:"full"},
+  { path : 'dashboard-hr' ,component : DashboardHrComponent,pathMatch:"full"},
+  { path : 'dashboard-developer' ,component : DashboardDeveloperComponent,pathMatch:"full"}
+
 
 ];
 

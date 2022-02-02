@@ -10,7 +10,7 @@ import { User } from 'src/app/User';
 export class RegistraionComponent implements OnInit {
 
   
-  user:User = new User("","","","","","","","",0,0);
+  user:User = new User("","","","","","","","",0,"");
   message:any;
  
   constructor(private userservice:UserRegisterService) { }

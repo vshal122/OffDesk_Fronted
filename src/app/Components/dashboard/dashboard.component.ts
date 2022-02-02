@@ -7,6 +7,9 @@ import { UserProfileService } from 'src/app/Service/user-profile.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  tempuserData: boolean=false;
+
+  allProfiles: any;
 
   constructor(private userprofile:UserProfileService) { }
 
@@ -16,6 +19,8 @@ export class DashboardComponent implements OnInit {
   {
           this.userprofile.getUserDetails().subscribe(
           Response=>{
+              this.allProfiles = Response;
+              this.tempuserData=true;
                console.log(Response);
           },
           error=>{
