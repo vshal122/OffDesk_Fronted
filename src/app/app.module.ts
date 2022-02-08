@@ -31,6 +31,10 @@ import { DashboardHrComponent } from './Components/dashboard-hr/dashboard-hr.com
 import { DashboardDeveloperComponent } from './Components/dashboard-developer/dashboard-developer.component';
 import {  MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MomentDateModule } from '@angular/material-moment-adapter';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { MY_DATE_FORMATS } from './my-date-formate';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -63,11 +67,13 @@ import { MatListModule } from '@angular/material/list';
     MatRadioModule,
     MatSelectModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MomentDateModule,
+    MatSnackBarModule
     
 
   ],
-  providers: [BackedService,LoginserviceService,AuthGuard,[{provide:HTTP_INTERCEPTORS,useClass:AuthIntercepter,multi:true}],RegistraionComponent],
+  providers: [BackedService,LoginserviceService,AuthGuard,[{provide:HTTP_INTERCEPTORS,useClass:AuthIntercepter,multi:true}],RegistraionComponent,{provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

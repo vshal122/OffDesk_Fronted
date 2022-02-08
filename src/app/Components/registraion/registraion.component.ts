@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRegisterService } from 'src/app/Service/user-register.service';
 import { User } from 'src/app/User';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registraion',
@@ -23,7 +24,16 @@ export class RegistraionComponent implements OnInit {
   public registerNow()
   {
          let res=this.userservice.doRegistration(this.user);
-         res.subscribe((data)=>this.message=data)
+         res.subscribe((data)=>{this.message=data
+              Swal.fire({text:"Registration successfull",timer:6000})
+         },
+              (Error)=>{
+                console.log("Registration Error");
+                
+              }
+              
+              
+         )
   }
 
 }

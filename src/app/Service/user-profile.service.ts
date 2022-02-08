@@ -30,5 +30,33 @@ export class UserProfileService {
   return this.http.post(`${this.baseurl}/offdesk/leave/save`,leavedetails,{responseType:"text" as "json"});
  }
 
+ getEmployeeWithWaitingState(gmail:string)
+ {
+  return this.http.get(`${this.baseurl}/offdesk/user/employee_by_managerid/${gmail}`,{responseType:"text" as "json"});
+ }
+
+
+ approveLeaveByManager(id:number)
+ {
+  return this.http.get(`${this.baseurl}/offdesk/user/giveApproveByManager/${id}`);
+ }
+
+
+ rejectLeaveByManager(id:number)
+ {
+  return this.http.get(`${this.baseurl}/offdesk/user/RejectByManager/${id}`);
+ }
+
+ checkLeaveRecordByEmail(gmail:string)
+ {
+  return this.http.get(`${this.baseurl}/offdesk/leave/findLeaveBalance/${gmail}`);
+ }
+
+
+ getAllEmployeeApproveOrwait(gmail:string)
+ {
+  return this.http.get(`${this.baseurl}/offdesk/user/GetAllEmployeeWithApprovedOrWaitByManager/${gmail}`);
+ }
+
 }
  

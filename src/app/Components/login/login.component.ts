@@ -1,6 +1,9 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 import { LoginserviceService } from 'src/app/Service/loginservice.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-login',
@@ -17,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
   user:any;
 
-  constructor(private loginService:LoginserviceService) { }
+  constructor(private loginService:LoginserviceService,private SnackBar:MatSnackBar) { }
 
   
 
@@ -40,30 +43,39 @@ export class LoginComponent implements OnInit {
     },
    Error=>{
             console.log("Log Response Error");
+            this.SnackBar.open('Credentials are not valid', 'Cancel');
+
+
       })
 if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && this.credentials.designation=="Admin")
        {
         console.log("Welcome in Admin Panel");
+        Swal.fire({text:"Logged In",timer:10000});
        window.location.href="/dashboard"
 
         } else if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && (this.credentials.designation=="Manager"))
     {
    
       console.log("Welcome in Manager Panel");
+      Swal.fire({text:"Logged In",timer:10000});
      window.location.href="/dashboard-manager"
     } else if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && (this.credentials.designation=="HR"))
      {
            console.log("WElcome to our HR Panel");
+           Swal.fire({text:"Logged In",timer:10000});
            window.location.href="/dashboard-hr";
      }
 
      else if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && (this.credentials.designation=="Developer"))
      {
            console.log("WElcome to our Developer");
+           Swal.fire({text:"Logged In",timer:10000});
            window.location.href="/dashboard-developer";
      }
       else{
       console.log("Credentials are not valid");
+    
+
       
     }
   }
