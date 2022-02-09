@@ -23,7 +23,7 @@ export class DashboardManagerComponent implements OnInit {
   tempVar1:boolean=false;
  
   //Get Employee whose Leave Status are Waiting
-   getEmployeeByManagerEmail()
+   getEmployeeByManagerEmailWithWaiting()
      {
 
       this.newtoken= this.loginservice.getToken();
@@ -34,6 +34,7 @@ export class DashboardManagerComponent implements OnInit {
        this.userprofileservice.getEmployeeWithWaitingState(this.email).subscribe(
          (data:any) => {
           this.AllEmployeeByManager= JSON.parse(data);
+          console.log(this.AllEmployeeByManager);
           this.tempVar=true;
           this.tempVar1=false;
           
@@ -92,7 +93,7 @@ export class DashboardManagerComponent implements OnInit {
         this.decodedValue = JSON.parse(window.atob(this.base64Url));
           this.email=this.decodedValue["sub"];
   
-         this.userprofileservice.getAllEmployeeApproveOrwait(this.email).subscribe(
+         this.userprofileservice.getAllEmployeeApproveOrReject(this.email).subscribe(
            (data:any) => {
             this.AllEmployeeWithRejectAnWait=data;
             this.tempVar1=true;

@@ -39,11 +39,16 @@ export class DashboardDeveloperComponent implements OnInit {
   ngOnInit(): void {
 
   }
-   minDate= new Date();
-    dateFilter = (d: Date) :boolean => {
+  
+   weekendsDatesFilter = (d: Date) :boolean | null => {
       const date = d.getDay();
       return (date !== 0 && date !== 6);
     }
+    minDate= new Date();
+
+
+    
+  
     
     checkLeaveBalance(){
        this.newtoken= this.loginservice.getToken();

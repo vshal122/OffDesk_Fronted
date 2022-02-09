@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   }
   user:any;
-
+  hide:boolean=true;
+  
   constructor(private loginService:LoginserviceService,private SnackBar:MatSnackBar) { }
 
   
