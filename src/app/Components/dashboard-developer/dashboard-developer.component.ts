@@ -24,6 +24,7 @@ export class DashboardDeveloperComponent implements OnInit {
   tempVar:boolean=false;
   tempVar2 :boolean=false;
   tempVar3:boolean=false;
+  minDate:Date =new Date();
   
 
   leavedetails={
@@ -34,23 +35,22 @@ export class DashboardDeveloperComponent implements OnInit {
           userLeaveEmail:""
 
         }
-  constructor(private userservice:UserProfileService,private loginservice:LoginserviceService) { }
+        temp:boolean=false;
+        
+         constructor(private userservice:UserProfileService,private loginservice:LoginserviceService) { }
 
   ngOnInit(): void {
 
   }
   
-   weekendsDatesFilter = (d: Date) :boolean | null => {
-      const date = d.getDay();
-      return (date !== 0 && date !== 6);
-    }
-    minDate= new Date();
-
-
+  // Prevent Saturday and Sunday from being selected.
+   weekendsDatesFilter=(d: any | null): boolean => {
+    const day = (new Date(d)).getDay();
+    return day !== 0 && day !== 6;
+  };
+       
     
-  
-    
-    checkLeaveBalance(){
+   checkLeaveBalance(){
        this.newtoken= this.loginservice.getToken();
        this.base64Url =this.newtoken.split('.')[1];
        this.decodedValue = JSON.parse(window.atob(this.base64Url));

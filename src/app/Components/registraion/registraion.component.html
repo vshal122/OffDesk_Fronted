@@ -31,12 +31,15 @@
             <mat-label>Password</mat-label>
             <input type="password" matInput  placeholder="Password" [(ngModel)]="user.password" name="password" required>
          </mat-form-field>
-         <mat-form-field  class="mat-form-d" appearance="outline">
+         <mat-form-field  class="mat-form-d" appearance="outline" >
             <mat-label>ManagerEmail</mat-label>
-            <input  matInput  placeholder="Manager" [(ngModel)]="user.managerUsername"  name="managerUsername"  required>
-         </mat-form-field>
+           <mat-select name="managerUsername" (click)="getAllManager()"   [(ngModel)]="user.managerUsername"  required>
+               <mat-option  *ngFor="let item of AllManager" [value]="item" >{{item}}</mat-option>
+               <mat-option value="null">None</mat-option>
+             </mat-select>
+           </mat-form-field>
          
-             
+           
            <mat-form-field appearance="outline" class="mat-form-d" required>
             <mat-label>Select Gender</mat-label>
             <mat-select name="gender" [(ngModel)]="user.gender" required>

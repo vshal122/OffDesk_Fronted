@@ -42,13 +42,13 @@
                 <h2>Take Your Leave</h2>
             <mat-form-field  appearance="outline" >
              <mat-label>Start Date of Leave</mat-label>
-           <input matInput [matDatepicker]="picker"    name="fromDate"  [(ngModel)]="leavedetails.fromDate"  [min]="minDate" placeholder="Choose date" >
+           <input matInput [matDatepickerFilter]="weekendsDatesFilter"   [matDatepicker]="picker"    name="fromDate"     [(ngModel)]="leavedetails.fromDate"  [min]="minDate" placeholder="Choose date" >
            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
            <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <mat-form-field  appearance="outline" required>
               <mat-label>End Date of Leave</mat-label>
-              <input matInput [matDatepicker]="picker1"   name="endDate"  [(ngModel)]="leavedetails.endDate" [min]="minDate"  placeholder="Choose date" >
+              <input matInput [matDatepickerFilter]="weekendsDatesFilter" [matDatepicker]="picker1"   name="endDate"  [(ngModel)]="leavedetails.endDate" [min]="minDate"  placeholder="Choose date" >
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>

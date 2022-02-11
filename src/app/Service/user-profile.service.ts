@@ -58,5 +58,11 @@ export class UserProfileService {
   return this.http.get(`${this.baseurl}/offdesk/user/GetAllEmployeeWithApprovedOrWaitByManager/${gmail}`);
  }
 
+
+ getAllEmailManager()
+ {
+  return this.http.get(`${this.baseurl}/offdesk/user/getAllmanager`);
+ }
+
 }
  
