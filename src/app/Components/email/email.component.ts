@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { BackedService } from 'src/app/Service/backed.service';
+import { MailService } from 'src/app/Service/mail.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -11,23 +11,25 @@ import { BackedService } from 'src/app/Service/backed.service';
 export class EmailComponent implements OnInit {
 
   data={
-    to: " ",
-    Subject: " ",
-    message:" "
+    fromMail: " ",
+    toMail: " ",
+    subjectMail: " ",
+    bodyMail:" "
   }
 
-  constructor(private email:BackedService) { }
+  constructor(private email: MailService) { }
 
   ngOnInit(): void {
   }
-
+   
   doSubmit()
   {
     console.log("Try to submit Form");
     console.log("DATA",this.data);
-    this.email.SendEmail(this.data).subscribe(
+    this.email.SendMail(this.data).subscribe(
       response=>{
         console.log(response);
+        Swal.fire({"text" :"Sent Message"});
       },
       error=>{
        console.log(error);

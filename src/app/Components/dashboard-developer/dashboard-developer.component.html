@@ -4,6 +4,8 @@
         <button class="button-style" mat-raised-button color="white" (click)="checkLeaveBalance()">My Leave History</button>
         <button class="button-style"   mat-raised-button color="white" (click)="InleaveForm()"  >Apply for leave</button>
         <button class="button-style"   mat-raised-button color="white" (click)="checkLeaveRecord()"  >Check Your Leave Record</button>
+       <a routerLink="/SendMail"><button class="button-style"   mat-raised-button color="white" >Send Mail</button></a> 
+       <a href="https://mail.google.com/mail/u/0/#inbox"><button class="button-style"   mat-raised-button color="white" >See Notification</button></a> 
     </mat-card>
     <div *ngIf="!tempVar && !tempVar2 && !tempVar3" >  
         <img    src="assets\undraw_welcome_cats_thqn.svg" style="width: 30%; margin-left: 400px; margin-top: 80px;">

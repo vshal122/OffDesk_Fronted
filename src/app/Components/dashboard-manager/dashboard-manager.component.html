@@ -2,8 +2,10 @@
     <mat-card>
     <h2>!! Welcome to Manager Panel !!</h2>
    
-    <button mat-raised-button class="mat-button-d" color="white"  (click)="getEmployeeByManagerEmailWithWaiting()"  >Waiting Employees For Leave</button>
-    <button mat-raised-button class="mat-button-d" color="white"  (click)="getAllEmployeeWithApproveOrreject()">History of Employees</button>                                   
+    <button mat-raised-button class="mat-button-d" color="white"  (click)="getEmployeeByManagerEmailWithWaiting()">Waiting Employees For Leave</button>
+    <button mat-raised-button class="mat-button-d" color="white"  (click)="getAllEmployeeWithApproveOrreject()">History of Employees</button>  
+    <a routerLink="/SendMail"><button class="mat-button-d"   mat-raised-button color="white" >Send Mail</button></a> 
+    <a href="https://mail.google.com/mail/u/0/#inbox"><button class="mat-button-d"   mat-raised-button color="white" >See Notification</button></a> 
     </mat-card>
     <div >  
      <img  *ngIf="!tempVar && !tempVar1"  src="assets\undraw_welcome_cats_thqn.svg" style="width: 30%; margin-left: 400px; margin-top: 80px;">

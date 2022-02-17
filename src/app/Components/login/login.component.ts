@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
   
   customSubmit()
  {  
+
+  if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null))
+  {
   this.loginService.generateToken(this.credentials).subscribe(
     (Response:any)=>{
          this.loginService.loginUser(Response.token);
@@ -40,46 +43,39 @@ export class LoginComponent implements OnInit {
          this.credentials.designation =decodedValue["userRole"][0];
          this.user=decodedValue["sub"];
          console.log(this.credentials.designation);
-         
-    },
+          if(this.credentials.designation=="Admin")
+          {
+            console.log("Welcome in Admin Panel");
+            Swal.fire({text:"Logged In",timer:10000});
+           window.location.href="/dashboard"
+          }else if(this.credentials.designation=="Manager")
+          {
+            console.log("Welcome in Manager Panel");
+            Swal.fire({text:"Logged In",timer:10000});
+           window.location.href="/dashboard-manager"
+          }else if(this.credentials.designation=="Developer")
+          {
+            console.log("WElcome to our Developer");
+            Swal.fire({text:"Logged In",timer:10000});
+            window.location.href="/dashboard-developer";
+          }
+
+ },
    Error=>{
             console.log("Log Response Error");
             this.SnackBar.open('Credentials are not valid', 'Cancel');
 
 
       })
-if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && this.credentials.designation=="Admin")
-       {
-        console.log("Welcome in Admin Panel");
-        Swal.fire({text:"Logged In",timer:10000});
-       window.location.href="/dashboard"
-
-        } else if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && (this.credentials.designation=="Manager"))
-    {
-   
-      console.log("Welcome in Manager Panel");
-      Swal.fire({text:"Logged In",timer:10000});
-     window.location.href="/dashboard-manager"
-    } else if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && (this.credentials.designation=="HR"))
-     {
-           console.log("WElcome to our HR Panel");
-           Swal.fire({text:"Logged In",timer:10000});
-           window.location.href="/dashboard-hr";
-     }
-
-     else if((this.credentials.username !='' && this.credentials.password !='') && (this.credentials.username !=null && this.credentials.password !=null) && (this.credentials.designation=="Developer"))
-     {
-           console.log("WElcome to our Developer");
-           Swal.fire({text:"Logged In",timer:10000});
-           window.location.href="/dashboard-developer";
-     }
-      else{
-      console.log("Credentials are not valid");
-    
-
-      
-    }
   }
+
+  else
+  {
+    this.SnackBar.open('username && password not empty', 'Cancel');
+  }
+}
+   
+    
   
   
   

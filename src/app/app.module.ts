@@ -13,7 +13,6 @@ import { AppRoutingModule } from './app-routing.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { BackedService } from './Service/backed.service';
 import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './Components/login/login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
@@ -35,6 +34,7 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MY_DATE_FORMATS } from './my-date-formate';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MailService } from './Service/mail.service';
 
 
 
@@ -75,7 +75,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     
 
   ],
-  providers: [BackedService,LoginserviceService,AuthGuard,[{provide:HTTP_INTERCEPTORS,useClass:AuthIntercepter,multi:true}],RegistraionComponent,{provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}],
+  providers: [MailService,LoginserviceService,AuthGuard,[{provide:HTTP_INTERCEPTORS,useClass:AuthIntercepter,multi:true}],RegistraionComponent,{provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
