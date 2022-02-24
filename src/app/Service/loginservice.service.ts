@@ -8,8 +8,11 @@ import { isEmpty } from 'rxjs';
 export class LoginserviceService {
 
   url ="http://localhost:8081/jwt"
+  activeUser:boolean=false;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    console.log(this.activeUser);
+   }
   
   generateToken(credentials:any)
   {

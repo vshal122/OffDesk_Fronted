@@ -12,14 +12,14 @@ import { DashboardDeveloperComponent } from './Components/dashboard-developer/da
 
 
 const routes: Routes = [
-  { path: 'SendMail', component: EmailComponent, pathMatch:"full" },
+  { path: 'SendMail', component: EmailComponent, pathMatch:"full", canActivate:[AuthGuard]},
   { path: 'login', component: LoginComponent , pathMatch:"full" },
-  { path: 'dashboard', component: DashboardComponent , pathMatch:"full",canActivate:[AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent , pathMatch:"full", canActivate:[AuthGuard] },
   { path : 'home' ,component : HomeComponent,pathMatch:"full"},
-  { path : 'registraion' ,component : RegistraionComponent,pathMatch:"full"},
-  { path : 'dashboard-manager' ,component : DashboardManagerComponent,pathMatch:"full"},
+  { path : 'registraion' ,component : RegistraionComponent,pathMatch:"full", canActivate:[AuthGuard]},
+  { path : 'dashboard-manager' ,component : DashboardManagerComponent,pathMatch:"full", canActivate:[AuthGuard]},
   { path : 'dashboard-hr' ,component : DashboardHrComponent,pathMatch:"full"},
-  { path : 'dashboard-developer' ,component : DashboardDeveloperComponent,pathMatch:"full"}
+  { path : 'dashboard-developer' ,component : DashboardDeveloperComponent,pathMatch:"full", canActivate:[AuthGuard]}
 
 
 ];

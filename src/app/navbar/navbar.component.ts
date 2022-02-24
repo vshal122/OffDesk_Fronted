@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
   {
     this.loginservice.logout();
     location.reload();
+    this.loginservice.activeUser=false; 
     Swal.fire({text:"Exit Successfully",timer:30000});
     window.location.href="/login";
   }

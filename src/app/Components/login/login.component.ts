@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   user:any;
   hide:boolean=true;
   
-  constructor(private loginService:LoginserviceService,private SnackBar:MatSnackBar) { }
+  constructor(public loginService:LoginserviceService,private SnackBar:MatSnackBar) { }
 
   
 
@@ -38,11 +38,13 @@ export class LoginComponent implements OnInit {
     (Response:any)=>{
          this.loginService.loginUser(Response.token);
          var Newtoken= Response.token;
+         console.log(Newtoken);
          var base64Url =Newtoken.split('.')[1];
          var decodedValue = JSON.parse(window.atob(base64Url));
          this.credentials.designation =decodedValue["userRole"][0];
-         this.user=decodedValue["sub"];
          console.log(this.credentials.designation);
+         
+         this.loginService.activeUser=true;
           if(this.credentials.designation=="Admin")
           {
             console.log("Welcome in Admin Panel");
@@ -58,6 +60,7 @@ export class LoginComponent implements OnInit {
             console.log("WElcome to our Developer");
             Swal.fire({text:"Logged In",timer:10000});
             window.location.href="/dashboard-developer";
+            
           }
 
  },

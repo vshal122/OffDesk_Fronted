@@ -55,7 +55,7 @@ export class UserProfileService {
 
  getAllEmployeeApproveOrReject(gmail:string)
  {
-  return this.http.get(`${this.baseurl}/offdesk/user/GetAllEmployeeWithApprovedOrWaitByManager/${gmail}`);
+  return this.http.get(`${this.baseurl}/offdesk/user/GetAllEmployeeWithApprovedOrrejectByManager/${gmail}`);
  }
 
 

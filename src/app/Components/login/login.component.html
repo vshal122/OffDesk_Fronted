@@ -1,7 +1,15 @@
-<mat-card>
+
+ <div class="container">
+ <div class="child-container" style="margin-top: 60px;">
+  <img   src="assets\undraw_secure_login_pdn4.svg" style="width: 350px;height: 250px; margin-left: 150px; margin-top: 250;">
+</div>
+
+<div *ngIf="!loginService.activeUser" class="child-container" style="width: 400px;height: 300px;margin-left: 250px;margin-top: 50px;">
+ 
+<mat-card >
     <mat-card-content>
       <form (ngSubmit)="customSubmit()" >
-        <h2>Sign In</h2>
+        <h2>Log In</h2>
         <mat-form-field>
           <input matInput placeholder="Email" [(ngModel)]="credentials.username"   name="email" required>
         </mat-form-field>
@@ -11,8 +19,11 @@
             {{!hide ? 'visibility':'visibility_off'}}
             </i>
         </mat-form-field>
-        <button mat-raised-button color="primary" >Sign In</button>
+        <button mat-raised-button color="primary" >Log In</button>
         <button style="margin-left: 10px;"  type="reset" mat-raised-button color="accent" >Reset</button>
       </form>
     </mat-card-content>
   </mat-card>
+</div>
+</div>
+ 
